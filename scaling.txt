@@ -1,0 +1,21 @@
+we expose our code on the internet using an API.
+there is a request to our code and the computer sends back a response.
+endpoints need to be configured.
+
+in case of a power loss, we need to host our code/application on the cloud instead of desktop
+cloud solution examples: AWS (their desktop runs our algorithm)
+so now, server is hosted on the cloud which takes care of the reliability
+
+focusing on business requirements (to handle more requests):
+1. buy bigger machines -> larger computer so faster: vertical scaling
+2. buy more machines -> requests can be randomly distributed: horizontal scaling
+
+    HORIZONTAL SCALING        ||      VERTICAL SCALING
+
+- load balancing required     ||  NA
+- resilient                   ||  single point of failure
+- network calls (RPC)         ||  inter process comm (faster)
+- data inconsistency          ||  consistent
+- users increase..scales well ||  hardware limit
+
+In real life: hybrid solution is used-> all machines are taken as big as possible
