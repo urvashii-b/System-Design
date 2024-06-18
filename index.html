@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Shortener</title>
+</head>
+<body>
+  <h1>URL Shortener🔗</h1>
+  <form id="configForm">
+    <label for="mongoUri">MongoDB URI:</label>
+    <input type="text" id="mongoUri" name="mongoUri" required>
+    <button type="submit">Save Configuration</button>
+  </form>
+  <script>
+    document.getElementById('configForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const mongoUri = document.getElementById('mongoUri').value;
+      const response = await fetch('/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mongoUri })
+      });
+      if (response.ok) {
+        alert('Configuration saved!');
+      } else {
+        alert('Error saving configuration');
+      }
+    });
+  </script>
+</body>
+</html>
